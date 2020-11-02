@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AzureDemo.Views.ProductDetailsPage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Name"
+                   Text="{Binding CurrentProduct.Name}"></Entry>
+            <Entry Placeholder="Description"
+                   Text="{Binding CurrentProduct.Description}"></Entry>
+            <Entry Placeholder="Material"
+                   Text="{Binding CurrentProduct.Material}"></Entry>
+            <Entry Placeholder="Measures"
+                   Text="{Binding CurrentProduct.Measures}"></Entry>
+            <Entry Placeholder="Price"
+                   Text="{Binding CurrentProduct.Price}"></Entry>
+            <Button Text="Save"
+                    HeightRequest="120"
+                    Command="{Binding SaveCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
