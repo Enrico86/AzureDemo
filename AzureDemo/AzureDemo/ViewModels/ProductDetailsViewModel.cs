@@ -1,4 +1,5 @@
-﻿using AzureDemo.Models;
+﻿using AzureDemo.Data;
+using AzureDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +27,9 @@ namespace AzureDemo.ViewModels
 
         private async Task SaveProduct()
         {
-            await App.ProductDatabase.SaveItemAsync(CurrentProduct);
+            //await App.ProductDatabase.SaveItemAsync(CurrentProduct);
+            await ProductsManager.DefaultManager.SaveItemAsync(CurrentProduct);
+            CurrentProduct = null;
             await navigation.PopAsync();
         }
     }

@@ -1,4 +1,5 @@
-﻿using AzureDemo.Helpers;
+﻿using AzureDemo.Data;
+using AzureDemo.Helpers;
 using AzureDemo.Models;
 using AzureDemo.Views;
 using System;
@@ -22,7 +23,7 @@ namespace AzureDemo.ViewModels
         public ProductsViewModel(INavigation nav)
         {
             navigation = nav;
-            Task.Run(async () => Products = await App.ProductDatabase.GetItemsGroupedAsync()).Wait();
+            Task.Run(async () => Products = await ProductsManager.DefaultManager.GetItemsGroupedAsync()).Wait();
             AddProductCommand = new Command(async() => await GoToProductDetailsPage());
             ItemTappedCommand = new Command(async () => await GoToProductDetailsPage(CurrentProduct));
 
